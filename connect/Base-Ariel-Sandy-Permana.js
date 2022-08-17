@@ -670,7 +670,7 @@ break
 case 'linkgroup': case 'linkgc': {
 if (!m.isGroup) throw mess.group
 let response = await arielspkece.groupInviteCode(m.chat)
-arielspkece.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`, m, { detectLink: true })
+arielspkece.sendMessage(m.chat, { text: `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`}, { quoted: ftroli })
 }
 break
 case 'ephemeral': {
@@ -694,10 +694,7 @@ let jawab = `Ciee yang Jadian💖 Jangan lupa pajak jadiannya🐤
 
 @${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
 let menst = [orang, jodoh]
-let buttons = [
-{ buttonId: 'jadian', buttonText: { displayText: 'JADIAN' }, type: 1 }
-]
-await arielspkece.sendButtonText(m.chat, buttons, jawab, creator, m, {mentions: menst})
+arielspkece.sendMessage(m.chat, { text: jawab, mentions: participants.map(a => a.id) }, { quoted: ftroli })
 }
 break
 case 'jodohku': {
@@ -709,10 +706,7 @@ let jawab = `👫Jodoh mu adalah
 
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
 let ments = [me, jodoh]
-let buttons = [
-{ buttonId: 'jodohku', buttonText: { displayText: 'JODOHKU' }, type: 1 }
-]
-await arielspkece.sendButtonText(m.chat, buttons, jawab, creator, m, {mentions: ments})
+arielspkece.sendMessage(m.chat, { text: jawab, mentions: participants.map(a => a.id) }, { quoted: ftroli })
 }
 break
 case 'delttc': case 'delttt': {
@@ -1591,7 +1585,7 @@ case 'kapankah':
 				if (args.length < 1) return m.reply(`Contoh : ${prefix + command} Saya Mati`)
 const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Hari Lagi','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi','35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','Besok','Lusa',`Abis Command Ini Juga Lu ${q}`]
 const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
-arielspkece.sendMessage(m.chat, { text: `Pertanyaan : ${q}\nJawaban : *${kapankah}*` }, { quoted: m })
+arielspkece.sendMessage(m.chat, { text: `Pertanyaan : ${q}\nJawaban : *${kapankah}*` }, { quoted: ftroli })
 break
 case 'cekmati':
               if (args.length < 1) return m.reply(`Contoh : ${prefix + command} Nama Lu`)
